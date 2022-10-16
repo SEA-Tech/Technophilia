@@ -1,0 +1,16 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}Search Blood{% endblock title %}
+
+{% block content %}
+    <br /><br />
+    <h2>Search for Blood</h2>
+    <a href="{% url 'search' %}ap"><button type="button" class="btn btn-outline-primary">A RhD positive (A+)</button></a>
+    <a href="{% url 'search' %}an"><button type="button" class="btn btn-outline-primary">A RhD negative (A-)</button></a>
+    <a href="{% url 'search' %}bp"><button type="button" class="btn btn-outline-primary">B RhD positive (B+)</button></a>
+    <a href="{% url 'search' %}bn"><button type="button" class="btn btn-outline-primary">B RhD negative (B-)</button></a>
+    <a href="{% url 'search' %}op"><button type="button" class="btn btn-outline-primary">O RhD positive (O+)</button></a>
+    <a href="{% url 'search' %}on"><button type="button" class="btn btn-outline-primary">O RhD negative (O-)</button></a>
+    <a href="{% url 'search' %}abp"><button type="button" class="btn btn-outline-primary">AB RhD positive (AB+)</button></a>
+    <a href="{% url 'search' %}abn"><button type="button" class="btn btn-outline-primary">AB RhD negative (AB-)</button></a>
+{% endblock content %}

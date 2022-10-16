@@ -1,0 +1,26 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}Register Donor{% endblock title %}
+
+{% block content %}
+    <h2>Donating to Hospital - {{hospital_name}}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <input required type="text" name="name" placeholder="Enter Name..." /><br /><br />
+        <input required type="text" name="age" placeholder="Enter Age..." /><br /><br />
+        <input required type="text" name="aadhar_no" placeholder="Enter Aadhar No..." /><br /><br />
+        <input type="text" name="address" placeholder="Enter Address..." /><br /><br />
+        <label for="bgs">Select Blood Group:</label>
+            <select id="bgs" name="blood_group" size="8">
+            <option value="A RhD positive (A+)">A RhD positive (A+)</option>
+            <option value="A RhD negative (A-)">A RhD negative (A-)</option>
+            <option value="B RhD positive (B+)">B RhD positive (B+)</option>
+            <option value="B RhD negative (B-)">B RhD negative (B-)</option>
+            <option value="O RhD positive (O+)">O RhD positive (O+)</option>
+            <option value="O RhD negative (O-)">O RhD negative (O-)</option>
+            <option value="AB RhD positive (AB+)">AB RhD positive (AB+)</option>
+            <option value="AB RhD negative (AB-)">AB RhD negative (AB-)</option>
+        </select><br /><br />
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock content %}

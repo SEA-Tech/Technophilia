@@ -1,0 +1,20 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}Register Hospital{% endblock title %}
+
+{% block content %}
+
+<h1>Hospital Registration</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <input name="name" placeholder="Enter Hospital Name..." type="text" /><br /><br />
+    <input name="contact" placeholder="Enter Contact Number..." type="text" /><br /><br />
+    <input name="address" placeholder="Enter Address..." /><br /><br />
+    <input name="pincode" placeholder="Enter Pincode" type="number" /><br /><br />
+    <input name="city" placeholder="Enter City..." /><br /><br />
+    <input name="country" placeholder="Enter Country..." /><br /><br />
+    <input type="submit" value="Submit" />
+</form>
+
+{% endblock content %}

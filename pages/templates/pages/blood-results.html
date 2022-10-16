@@ -1,0 +1,46 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}BloodResults{% endblock title %}
+
+{% block content %}
+<br />
+<div class="px-2">
+<h2>Search for Blood</h2>
+    <a href="{% url 'search-res' 'ap' %}"><button type="button" class="btn btn-outline-primary">A RhD positive (A+)</button></a>
+    <a href="{% url 'search-res' 'an' %}"><button type="button" class="btn btn-outline-primary">A RhD negative (A-)</button></a>
+    <a href="{% url 'search-res' 'bp' %}"><button type="button" class="btn btn-outline-primary">B RhD positive (B+)</button></a>
+    <a href="{% url 'search-res' 'bn' %}"><button type="button" class="btn btn-outline-primary">B RhD negative (B-)</button></a>
+    <a href="{% url 'search-res' 'op' %}"><button type="button" class="btn btn-outline-primary">O RhD positive (O+)</button></a>
+    <a href="{% url 'search-res' 'an' %}"><button type="button" class="btn btn-outline-primary">O RhD negative (O-)</button></a>
+    <a href="{% url 'search-res' 'abp' %}"><button type="button" class="btn btn-outline-primary">AB RhD positive (AB+)</button></a>
+    <a href="{% url 'search-res' 'abn' %}"><button type="button" class="btn btn-outline-primary">AB RhD negative (AB-)</button></a>
+</div>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% if hospitals %}
+            {% for hospital in hospitals %}
+            <div class="col">
+                <h1>Hospitals</h1><br />
+                <div class="card shadow-sm">
+                  <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ hospital.imageURL }}" />
+                  <div class="card-body">
+                    <p class="card-text">{{ hospital.name|truncatechars:30 }}</p>
+                    <p class="card-text">{{ hospital.description|truncatechars:30 }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <a href="{% url 'hospital' id=hospital.id %}"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+            {% else %}
+            <h2>We are currently of that blood... :-(</h2>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+{% endblock content %}

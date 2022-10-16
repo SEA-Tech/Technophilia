@@ -1,0 +1,41 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}Usage{% endblock title %}
+
+{% block content %}
+
+<h1>Hospital : {{hospital.name}}</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    Select Blood Group:
+    <select name="blood_group" id="group">
+        {% if hospital.ap > 0 %}
+        <option value="A RhD positive (A+)">A RhD positive (A+)</option>
+        {% endif %}
+        {% if hospital.an > 0 %}
+        <option value="A RhD negative (A-)">A RhD negative (A-)</option>
+        {% endif %}
+        {% if hospital.bp > 0 %}
+        <option value="B RhD positive (B+)">B RhD positive (B+)</option>
+        {% endif %}
+        {% if hospital.bn > 0 %}
+        <option value="B RhD negative (B-)">B RhD negative (B-)</option>
+        {% endif %}
+        {% if hospital.op > 0 %}
+        <option value="O RhD positive (O+)">O RhD positive (O+)</option>
+        {% endif %}
+        {% if hospital.on > 0 %}
+        <option value="O RhD negative (O-)">O RhD negative (O-)</option>
+        {% endif %}
+        {% if hospital.abp > 0 %}
+        <option value="AB RhD positive (AB+)">AB RhD positive (AB+)</option>
+        {% endif %}
+        {% if hospital.abn > 0 %}
+        <option value="AB RhD negative (AB-)">AB RhD negative (AB-)</option>
+        {% endif %}
+    </select>
+    <input type="submit" value="Submit" />
+</form>
+
+{% endblock content %}

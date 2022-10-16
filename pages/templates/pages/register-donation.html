@@ -1,0 +1,14 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}Donation{% endblock title %}
+
+{% block content %}
+    <h1>Donation Record: Hospital {{hospital.name}}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text"class="form-control" name="username" placeholder="Enter Username..." /><br />
+        <input class="form-check-input" required type="checkbox" id="confirmation" name="Confirmation" value="CONFIRM">
+        <label for="confirmation"> &nbsp;Confirm that the details you given are correct </label><br /><br />
+        <input class="btn btn-primary" type="submit" value="Submit" /><br />
+    </form>
+{% endblock content %}

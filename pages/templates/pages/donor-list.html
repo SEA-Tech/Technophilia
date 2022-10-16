@@ -1,0 +1,14 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}Donors{% endblock title %}
+
+{% block content %}
+    <h1>Donors for {{name}}:</h1><br /><br />
+    {% for donor in donors %}
+        <div>
+            <h3>{{donor.name}}</h3>
+            Age: {{donor.age}}<br />
+            Blood Group: {{donor.blood_group}}<br />
+        </div><br /><br />
+    {% endfor %}
+{% endblock content %}

@@ -1,0 +1,77 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}{{hospital.name}}{% endblock title %}
+
+{% block content %}
+
+<a href="/" class="btn btn-primary my-1"><span class="px-2">&#x2190;</span >Go Back</a>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card">
+          <div class="card-body">
+              <img src="{{hospital.imageURL}}" width="450px" height="200px" class='thumbnail'>
+          </div>
+        </div>
+      </div>
+      <div class="my-2 col-lg-8">
+        <div class="card">
+          <div class="card-body">
+            <center>
+              <h2 class="card-title">{{hospital.name}}</h2>
+              <hr>
+            </center>
+            <h3>Address: {{hospital.address}}</h3>
+            <p class="card-text">{{hospital.description}}</p>
+            <a href="{% url 'register-donation-hospital' hospital.id %}" class="btn btn-success my-1">Donate<span class="px-2">&rarr;</span ></a>
+          </div>
+
+          <br /><br />
+        
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Blood Group</th>
+                <th scope="col">Available</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>A RhD positive (A+)</td>
+                <td>{{hospital.ap}}</td>
+              </tr>
+              <tr>
+                <td>A RhD negative (A-)</td>
+                <td>{{hospital.an}}</td>
+              </tr>
+              <tr>
+                <td>B RhD positive (B+)</td>
+                <td>{{hospital.bp}}</td>
+              </tr>
+              <tr>
+                <td>B RhD negative (B-)</td>
+                <td>{{hospital.bn}}</td>
+              </tr>
+              <tr>
+                <td>O RhD positive (O+)</td>
+                <td>{{hospital.op}}</td>
+              </tr>
+              <tr>
+                <td>O RhD negative (O-)</td>
+                <td>{{hospital.on}}</td>
+              </tr>
+              <tr>
+                <td>AB RhD positive (AB+)</td>
+                <td>{{hospital.abp}}</td>
+              </tr>
+              <tr>
+                <td>AB RhD negative (AB-)</td>
+                <td>{{hospital.abn}}</td>
+              </tr>
+            </tbody>
+          </table>
+          {% comment %} <a href="{% url 'checkout' product_name=product.name %}" class="mx-3 my-3 btn btn-success">Buy Now</a> {% endcomment %}
+        </div>
+      </div>
+    </div>
+
+{% endblock content %}
