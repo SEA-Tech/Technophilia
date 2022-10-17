@@ -84,12 +84,12 @@ WSGI_APPLICATION = 'astraverseproject.wsgi.application'
 # }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'astraverse',
-        'USER': 'root',
-        'PASSWORD': 'SuryaTeja@9192',
-        'HOST':'localhost',
-        'PORT':'3306',
+        'USER': 'technophilia',
+        'PASSWORD': 'technophilia@2022',
+        'HOST':'technophilia.postgres.database.azure.com',
+        'PORT':'5432',
     }
 }
 
