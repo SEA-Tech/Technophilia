@@ -3,6 +3,7 @@ from .models import Hospital, Donor, HospitalDonation, HospitalUse, DonationRequ
 from accounts.models import CustomUser
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
+from accounts.forms import CustomUserCreationForm
 
 # Create your views here.
 
@@ -32,6 +33,21 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
+def register(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+    form = CustomUserCreationForm()
+    if request.method == "POST":
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, f'Account was created for {user}')
+            return redirect('login')
+        
+    context = {'form': form}
+    return render(request, 'pages/register.html', context)
+
 
 def home(request):
     context = {}
@@ -54,8 +70,9 @@ def register_hospital(request):
         pincode = request.POST.get('pincode')
         city = request.POST.get('city')
         country = request.POST.get('country')
+        fileupload = request.POST.get('fileupload')
 
-        hospital = Hospital(name=name, contact=contact, address=address, pincode=pincode, city=city, country=country)
+        hospital = Hospital(name=name, contact=contact, address=address, pincode=pincode, city=city, country=country, image=fileupload)
         hospital.save()
         return redirect('home')
 
