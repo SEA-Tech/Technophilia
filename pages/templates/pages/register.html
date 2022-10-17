@@ -1,0 +1,56 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}Register Form{% endblock title %}
+
+{% block content %}
+
+<section class="vh-100 bg-image">
+    <br /><br />
+<div class="mask d-flex align-items-center h-100 gradient-custom-3">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body p-5">
+            <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+            <form method="POST">
+              {% csrf_token %}
+              {{form.first_name}}<br />
+              {{form.last_name}}<br />
+              {{form.username}}<br />
+              {{form.email}}<br />
+              {{form.password1}}<br />
+              {{form.password2}}<br />
+              {{form.aadhar_no}}<br />
+              {{form.age}}<br />
+              {{form.address}}<br />
+              Select Blood Group: {{form.blood_group}}<br />
+              <button type="submit" class="btn btn-success">Register</button>
+              {{form.errors}}<br />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<script>
+    var f = document.getElementsByTagName('input')
+    f[1].placeholder = 'First Name...';
+    f[2].placeholder = 'Last Name...';
+    f[3].placeholder = 'Username...';
+    f[4].placeholder = 'Email Address...';
+    f[5].placeholder = 'Password...';
+    f[6].placeholder = 'Confirm Password...';
+    f[7].placeholder = 'Aadhar No...';
+    f[8].placeholder = 'Age...';
+    f[9].placeholder = 'Address...';
+    for (var field in f){	
+        f[field].className += ' form-control'
+    }
+</script>
+
+{% endblock content %}
