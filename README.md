@@ -6,7 +6,7 @@
 3. pages folder contains the templates, models, views etc.
 4. views.py has the business logic with rendering templates
 5. accounts has the User(Donor) Schema
-6. admin panel can be found in /admin route
+6. admin panel can be found in /admin route.
 
 ## Running the project
 
@@ -19,3 +19,5 @@
 
 ### creating superuser
 - <i>python manage.py createsuperuser</i>
+
+
